@@ -1,0 +1,118 @@
+\name{gbutton}
+\alias{.gbutton}
+\alias{addHandlerChanged.GButton}
+\alias{gbutton}
+\alias{svalue.GButton}
+\title{Basic button widget}
+\usage{
+  gbutton(text = "", handler = NULL, action = NULL,
+    container = NULL, ..., toolkit = guiToolkit())
+
+  .gbutton(toolkit, text, handler, action, container, ...)
+
+  \method{addHandlerChanged}{GButton} (obj, handler,
+    action = NULL, ...)
+
+  \method{svalue}{GButton} (obj, index = NULL, drop = NULL,
+    ...)
+}
+\arguments{
+  \item{text}{label text. If text matches a stock icon
+  name, that is used as well}
+
+  \item{handler}{A handler assigned to the default change
+  signal. Handlers are called when some event triggers a
+  widget to emit a signal. For each widget some default
+  signal is assumed, and handlers may be assigned to that
+  through \code{addHandlerChanged} or at construction time.
+  Handlers are functions whose first argument, \code{h} in
+  the documentation, is a list with atleast two components
+  \code{obj}, referring to the object emitting the signal
+  and \code{action}, which passes in user-specified data to
+  parameterize the function call.}
+
+  \item{action}{User supplied data passed to the handler
+  when it is called}
+
+  \item{container}{A parent container. When a widget is
+  created it can be incorporated into the widget heirarchy
+  by passing in a parent container at construction time.
+  (For some toolkits this is not optional, e.g.
+  \pkg{gWidgets2tcltk} or \pkg{gWidgets2WWW2}.)}
+
+  \item{...}{These values are passed to the \code{add}
+  method of the parent container, and occasionally have
+  been used to sneak in hidden arguments to toolkit
+  implementations. For example, when using a widget as a
+  menubar object one can specify a parent argument to pass
+  in parent information, similar to how the argument is
+  used with gaction and the dialogs.}
+
+  \item{toolkit}{Each widget constructor is passed in the
+  toolkit it will use. This is typically done using the
+  default, which will lookup the toolkit through
+  \code{\link{guiToolkit}}.}
+
+  \item{obj}{object receiving event and emitting a signal
+  to the handler}
+
+  \item{index}{NULL or logical. If \code{TRUE} and widget
+  supports it an index, instead of a value will be
+  returned.}
+
+  \item{drop}{NULL or logical. If widget supports it, drop
+  will work as it does in a data frame or perhaps someother
+  means.}
+}
+\value{
+  a \code{GButton} instance. While this object has its own
+  (reference) methods, one primarily interacts with it
+  through S3 methods defined within the package.
+}
+\description{
+  The basic button widget is a standard means to provide
+  the user a mechanism to invoke an action. This action may
+  be specified by a handler or by a \code{gaction} object.
+  The main property for \code{GButton} is the label text.
+  If this text matches a stock icon name and the toolkit
+  supports it, an icon will accompany the button.
+
+  S3 generic whose methods are implemented in the toolkit
+  packages
+
+  Change handler for a button is called when a button is
+  activated (e.g., a mouse click)
+
+  The \code{svalue} method for a button object refers to
+  its main property, the button label
+}
+\examples{
+if(interactive()) {
+
+  w <- gwindow("Buttons", visible=FALSE)
+  g <- ggroup(cont=w, horizontal=FALSE)
+
+  ## various buttons
+
+  ## with icons
+  b1 <- gbutton("open", cont=g)
+
+  ## without icon
+  b2 <- gbutton("ouvrir", cont=g)
+
+  ## by an action
+  act <- gaction("open", tooltip="open", icon="open", handler=function(...) {})
+  b3 <- gbutton(action=act, cont=g)
+
+  ## with a handler
+  b4 <- gbutton("click me", cont=g, handler=function(h,...) {
+    if(svalue(b2) == "open")
+      svalue(b2) <- "ouvrir"
+    else
+      svalue(b2) <- "open"
+  })
+
+  visible(w) <- TRUE
+}
+}
+

@@ -1,0 +1,101 @@
+\name{gwindow}
+\alias{.gwindow}
+\alias{add.GWindow}
+\alias{dispose.GWindow}
+\alias{gwindow}
+\title{gwindow}
+\usage{
+  gwindow(title = "Window", visible = TRUE, name = title,
+    width = NULL, height = NULL, parent = NULL,
+    handler = NULL, action = NULL, ...,
+    toolkit = guiToolkit())
+
+  .gwindow(toolkit, title, visible, name, width, height,
+    parent, handler, action, ...)
+
+  \method{add}{GWindow} (obj, child, expand = NULL,
+    fill = NULL, anchor = NULL, ...)
+
+  \method{dispose}{GWindow} (obj, ...)
+}
+\arguments{
+  \item{title}{title for window's title bar. This is the
+  main property and is accessed via \code{svalue} or
+  \code{svalue<-}.}
+
+  \item{visible}{logical. If code{TRUE} window is drawn
+  when constructed. Otherwise, window can be drawn later
+  using \code{visible<-}. This value can default to
+  \code{FALSE} by setting the option:
+  \code{options("gWidgets:gwindow-default-visible-is-false"=TRUE)}.
+  There are advantages: windows can draw slowly when adding
+  many items. With \pkg{gWidgets2RGtk2}, the
+  \code{ggraphics} widget can like to be added to an
+  undrawn widget as this avoids sizing issue.}
+
+  \item{name}{Name for registry of windows}
+
+  \item{width}{initial width of window}
+
+  \item{height}{initial height of window. This sets height
+  before window manager manages the window}
+
+  \item{parent}{If non-NULL, can be used to suggest default
+  location of window. The argument name was changed from
+  location to parent. This can be a coordinate pair (x,y)
+  with (0,0) the upper left corner, or a gwindow instance.
+  In the latter case the location is suggested by the
+  location of the current window. This is useful for
+  placing dialogs near the parent window.}
+
+  \item{handler}{handler for destroy event}
+
+  \item{action}{action passed t handler}
+
+  \item{...}{ignored}
+
+  \item{toolkit}{toolkit}
+
+  \item{obj}{parent object}
+
+  \item{child}{child widget}
+
+  \item{expand}{NULL or logical. For box containers
+  controls whether a child will expand to fill the
+  allocated space.}
+
+  \item{fill}{NULL or character. For box containers. The
+  value of \code{fill} (not always respected) is used to
+  control if expansion happens vertically (\code{y}),
+  horizontally (\code{x}) or both (\code{both} or
+  \code{TRUE}). For vertically filled box containers,
+  children always fill horizontally (atleast) and for
+  horizontally filled box containers, children always fill
+  vertically (atleast). This is important to realize when
+  trying to size buttons, say.}
+
+  \item{anchor}{NULL or integer. For box containers. The
+  anchor argument is used to position the child within the
+  parent when there is more space allocated than the child
+  requests. This is specified with a Cartesian pair in
+  {-1,0,1} x {-1, 0, 1}.}
+}
+\value{
+  a \code{GWindow} instance
+}
+\description{
+  top-level window object
+
+  S3 generic whose methods are implemented in the toolkit
+  packages
+
+  Dispatches on type of child (menubar, toolbar, statusbar,
+  widget)
+
+  The \code{dispose} method destroys the top-level window
+  and its children.
+}
+\author{
+  john verzani
+}
+

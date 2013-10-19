@@ -1,0 +1,118 @@
+\name{[.GDefaultWidget}
+\alias{[.GComponent}
+\alias{[.GContainer}
+\alias{[.GDefaultWidget}
+\alias{[.GDf}
+\alias{[.GEdit}
+\alias{[<-.GComponent}
+\alias{[<-.GDefaultWidget}
+\alias{dim.GComponent}
+\alias{dimnames.GComponent}
+\alias{dimnames<-.GComponent}
+\alias{length.GComponent}
+\alias{length<-.GComponent}
+\alias{names.GComponent}
+\alias{names<-.GComponent}
+\alias{names<-.GFrame}
+\alias{str.GComponent}
+\alias{update.GComponent}
+\title{Return items}
+\usage{
+  \method{[}{GDefaultWidget} (x, i, j, ...)
+
+  \method{[}{GDefaultWidget} (x, i, j, ...) <- value
+
+  \method{length}{GComponent} (x)
+
+  \method{length}{GComponent} (x) <- value
+
+  \method{dim}{GComponent} (x)
+
+  \method{names}{GComponent} (x)
+
+  \method{names}{GComponent} (x) <- value
+
+  \method{dimnames}{GComponent} (x)
+
+  \method{dimnames}{GComponent} (x) <- value
+
+  \method{[}{GComponent} (x, i, j, ..., drop = TRUE)
+
+  \method{[}{GContainer} (x, i, j, ..., drop = TRUE)
+
+  \method{[}{GComponent} (x, i, j, ...) <- value
+
+  \method{update}{GComponent} (object, ...)
+
+  \method{str}{GComponent} (object, ...)
+
+  \method{[}{GDf} (x, i, j, ..., drop = TRUE)
+
+  \method{names}{GFrame} (x) <- value
+
+  \method{[}{GEdit} (x, i, j, ..., drop = TRUE)
+}
+\arguments{
+  \item{x}{component}
+
+  \item{value}{value to assign}
+
+  \item{i}{index or row index if applicable}
+
+  \item{j}{column index if applicable}
+
+  \item{drop}{logical. Does return value get "dropped" down
+  to something easier?}
+
+  \item{...}{dots argument}
+
+  \item{object}{object to update}
+}
+\value{
+  length of object
+}
+\description{
+  Return items
+
+  Set object's items
+
+  Length of object
+
+  set length of object
+
+  dimension of object
+
+  Names are used in many different contexts.
+
+  set names of object
+
+  Get dimnames of object
+
+  Set dimnames of object
+
+  We use the extraction operator, \code{[}, typically to
+  refer to the underlying items from which a selection can
+  be made. As well, we overload this to containers to refer
+  to the child components.
+
+  Return children of a parent container
+
+  Set object's items
+
+  The update method will ca use a widget to recompute
+  itself, if it is necessary.
+
+  str method for widgets
+
+  The current items for a \code{gdf} object are both the
+  visible and non-visible items. To retrieve just the
+  currently visible items, use the idiom
+  \code{obj[visible(obj), ]}.
+
+  set names for frame
+
+  The underlying widget may allow autocompletion, if this
+  is the case then this method is used to set the list of
+  candidates.
+}
+

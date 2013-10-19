@@ -1,0 +1,19 @@
+\name{check_return_class}
+\alias{check_return_class}
+\title{check that toolkit object return the right class}
+\usage{
+  check_return_class(obj, ret_class)
+}
+\arguments{
+  \item{obj}{object with expected return class}
+
+  \item{ret_class}{character string of class expected}
+}
+\value{
+  throws error if a mismatch
+}
+\description{
+  The S3 dispatch assumes naming conventions in the class
+  names. This offers some check.
+}
+

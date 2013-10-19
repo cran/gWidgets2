@@ -1,0 +1,14 @@
+\name{is_MacOSX}
+\alias{is_MacOSX}
+\title{Return logical indicating if we are on a macintosh machine}
+\usage{
+  is_MacOSX()
+}
+\value{
+  logical
+}
+\description{
+  Return logical indicating if we are on a macintosh
+  machine
+}
+
