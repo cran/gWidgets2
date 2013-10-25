@@ -1,6 +1,7 @@
 ##' @include misc.R
 NULL
 
+
 ##'  helper function to bypass lack of cached value in method call
 ##'
 ##' @param meth method name
@@ -8,10 +9,8 @@ NULL
 ##' @return the method
 ##' @note use as do.call(call_meth, args)
 call_meth <- function(meth, obj) {
-##  if(exists(meth, obj, inherits=FALSE))
-    get(meth, obj)
-##  else
-##    methods:::envRefInferField(obj, meth, getClass(class(obj)), obj)
+  out <- eval(substitute(obj$x, list(x=meth)))
+  out
 }
 
 
