@@ -1,6 +1,6 @@
-55405c21078248a882b0521736393066 *DESCRIPTION
+10a9a71d0a7a4011ee275870a0b0c052 *DESCRIPTION
 df6738527ac2466cac879acbb99b44d3 *NAMESPACE
-14af710e33882b67f95065365a7718df *NEWS
+ac2f51e57cfbd98a0f43fb22afa8d4f4 *NEWS
 d06ed88a5748beb0b62b349deaecd20f *R/BasicInterface.R
 1077fbb75ac1aa159de6562133825b18 *R/S3-methods.R
 b91cff0e3624c239a572844233d99521 *R/S4-methods.R
@@ -15,7 +15,7 @@ a807f0aced725ae4d39f45560aaedb97 *R/gcheckbox.R
 1051ef29d2f3396c014f88aed0a28640 *R/gcombobox.R
 d2b4d1f9dffff1937b7897fc80f2be27 *R/gdf.R
 6a549e85e851598d243f355c9b43918e *R/gdfnotebook.R
-6a0b93ab1c72877835e79c6859f33072 *R/gedit.R
+60bc4866c38a2651ec7682bf4ee0026f *R/gedit.R
 c6517af3a563410374920b2143835a0a *R/gexpandgroup.R
 545345a98b0fb043d8c02ab3bf900aa5 *R/gfile.R
 f546a81aff0e56813c7f5648cbc3bfee *R/gfilter.R
@@ -31,7 +31,7 @@ a2e197be50c17d507acd502425d492f7 *R/ggraphics.R
 05c08fe1a9772ae176fbc1a62f6b4560 *R/gmenu.R
 e33fb52af7198be7d8b00aff6e7018ac *R/gnotebook.R
 3bd3e1f07cf0ff1dd1dca344c203a75d *R/gpanedgroup.R
-2f37446d62b345421afc5ef1a7d81516 *R/gprogressbar.R
+269db450bb35f864fc96f9776b756f86 *R/gprogressbar.R
 980405632c9f92ff4e93f0aa3471114d *R/gradio.R
 28db00cdd0f7354800ea212c87538351 *R/gseparator.R
 1f7c8f6d07dde0c66e2d1e2ee92b7a21 *R/gslider.R
@@ -39,10 +39,10 @@ e33fb52af7198be7d8b00aff6e7018ac *R/gnotebook.R
 82b74c9e71aed9167ceabe414145b082 *R/gstackwidget.R
 2692a93263f5a154101dd863499df028 *R/gstatusbar.R
 455971a69dd0b5fed8c9db10c2bf325d *R/gtable.R
-6e4b8d97de27b64846f363e5183a9b06 *R/gtext.R
+1c668df08d7d5e84971c04bdb2b1fe5b *R/gtext.R
 b0bc5c5332ea2a38af1ef29c18173e55 *R/gtimer.R
 8bce8c77f686ca599469805fa5b78bd3 *R/gtoolbar.R
-db0ddeaf7ce55bbeb6fee297b903a354 *R/gtree.R
+b506bb17fed991496119076c00d44ffe *R/gtree.R
 e9daa4baa47aa06cf128546505c5fd9e *R/guiToolkit.R
 90bac10b216e126d68a6ace53ca47908 *R/gvarbrowser.R
 15ba03f2959d024f667b23143db10206 *R/gwindow.R
@@ -79,7 +79,7 @@ ce0374f54dececdf53a4fede8efbf015 *inst/examples/ex-selection-widgets-II.R
 9563b30f9957df5f7da35a68c967e83d *inst/examples/ex-selection-widgets.R
 0cfb0850b255998c6be8603940e44844 *inst/examples/ex-selectionwidgets.R
 bc6bc05e64c2dde8f5414d72b608be57 *inst/examples/ex-wizard.R
-80860cabeabb80df1034ae84afef6527 *inst/examples/manipulate.R
+782b8ce8f303d2630d99711bab9b883a *inst/examples/manipulate.R
 a260b73c97a8eae8466a42a1f175af88 *inst/examples/run_examples.R
 e9ccb6ca944bbc728017e5b3fc09d9ec *inst/images/1downarrow.gif
 ce9ed0824f97365131503c32cd6a4d07 *inst/images/1leftarrow.gif
@@ -183,7 +183,7 @@ d89aaa75ba800821be2ac6cd70b24dd6 *inst/tests/df.R
 8289d5b9940776e20581e8c12431e201 *inst/tests/html.R
 dd77438f9bd5ebfb6e8635e064643aa1 *inst/tests/label.R
 b0b9dcb7af0577d0016ff33977b9ada6 *inst/tests/notebook.R
-4815bf5f8546199f28f45ed6ac935f0a *inst/tests/radio.R
+548915c2ee1e70b21680c2a130d53919 *inst/tests/radio.R
 d6bd0230ce29cec661aa255cdd037e94 *inst/tests/slider.R
 28cbfb3d97aa81cc4f9e9cd9e02ac247 *inst/tests/statusbar.R
 11a41a834d79b66a7f69c192d7845901 *inst/tests/table.R
@@ -252,7 +252,7 @@ eff0eec8af7e490a14afb88275d23278 *man/gtable.Rd
 89b0d7b19c97e7b868498320116d04bf *man/gtimer.Rd
 9c572a071999b9d279cdccf896c33786 *man/gtoolbar.Rd
 4e01dd22aed02a5405a07f192a325dcf *man/gtoolkit.Rd
-6d2dc8363579c87bc4f305f49dcc1ab0 *man/gtree.Rd
+158f44b29f14722f1a5f81cedac2543c *man/gtree.Rd
 b8930c3e9007c6f979d75a667cf50f00 *man/guiToolkit.Rd
 cfb33b40f10460695adc9d1c18a35c4b *man/gvarbrowser.Rd
 5527c38492dc2565a37a06766e890fcd *man/gwidget.Rd
