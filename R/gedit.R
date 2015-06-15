@@ -4,13 +4,20 @@ NULL
 
 ##' Single line text edit constructor
 ##'
+##' The default change handler is called when the return key is
+##' pressed. It can be useful to also call a handler when the widget
+##' loses focus. For that, the \code{addHandlerBlur} method is of
+##' use. (This was the default, but is now not, as it was hard to
+##' decouple the two when that was desirable.)
 ##' @param text initial text
 ##' @param width number of characters
 ##' @param coerce.with A function or name of function to coerce value with before returning by \code{svalue}
 ##' @param initial.msg If no initial text is given but an initial
 ##' message is, then this message is displayed until the widget
 ##' receives the focus
-##' @param handler Change handler. Called when return key is hit
+##' @param handler Change handler. Called when return key is hit. Use
+##' \code{addHandleBlur} to add a handler when the widget loses focus,
+##' such as through tab-key navigation.
 ##' @param action passed to handler
 ##' @param container parent container
 ##' @param ... passed to \code{add} method of parent
@@ -64,8 +71,7 @@ gedit <- function(
 ##' change handler
 ##' 
 ##' The default change handler call is when the user activates the
-##' entry, typically by pressing the enter key or when the widget
-##' loses the keyboard focus.  Other possible events to consider are
+##' entry by pressing the enter key. Other possible events to consider are
 ##' covered by: \code{addhandlerBlur} (when the widget loses focuses)
 ##' and \code{addHandlerKeystroke} (called after each keystroke). For
 ##' the latter, if the toolkit supports it, the handler's first

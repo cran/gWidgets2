@@ -13,7 +13,9 @@ NULL
 ##' 
 ##' @param tab.pos integer. Position of tabs, 1 on bottom, 2 left, 3
 ##' top, 4 right. (If supported)
-##' @inheritParams gwidget
+##' @param container parent container
+##' @param ... passed to \code{add} method for container
+##' @param toolkit underlying toolkit
 ##' @seealso \code{\link{gstackwidget}} for a similar widget without
 ##' tabs.
 ##' @note In \pkg{gWidgets2} the button arguments of the
@@ -31,7 +33,7 @@ NULL
 ##' addHandlerChanged(nb, handler=function(h,...) {
 ##'   message(sprintf("On page %s", h$page.no)) ## svalue(h$obj) not always right
 ##' })
-##' svalue(nb) <- 2
+##' svalue(nb) <- 2 ## or use "Page two"
 ##' dispose(nb)
 ##' length(nb)
 ##' 
@@ -121,13 +123,48 @@ dispose.GNotebook <- function(obj, ...) {
 ##'
 ##' The \code{names} of a notebook are the page tab labels. These may
 ##' be retrieved and set through the \code{names} method.
-##' @param x notebook object
 ##' @export
 ##' @rdname gnotebook
 ##' @method names GNotebook
 ##' @S3method names GNotebook
 "names.GNotebook" <- function(x) x$get_names()
 
+
+##' svalue method
+##'
+##' Set the currently raised tab by index (the default) or name
+##' @param index  \code{TRUE} refer to tab by 1-based
+##' index; \code{FALSE} allows reference by tab label.
+##' @param value assignment value
+##' @export
+##' @usage \method{svalue}{GNotebook} (obj, index=TRUE, ...) <- value
+##' @rdname gnotebook
+##' @method svalue<- GNotebook
+##' @S3method svalue<- GNotebook
+"svalue<-.GNotebook" <- function(obj, index=TRUE,  ...,value) {
+    if (!index) {
+        index = TRUE
+        value = match(value, names(obj))
+    }
+    NextMethod()
+}
+
+##' "[" method
+##'
+##' The notebook object contains pages referenced by index. This allows access to underlying page.
+##' @param x \code{GNotebook} object
+##' @param i row index. Either integer or character
+##' @param j ignored
+##' @param drop ignored
+##' @export
+##' @rdname gnotebook
+##' @method [ GNotebook
+##' @S3method [ GNotebook
+"[.GNotebook" <- function(x, i, j, ..., drop=TRUE) {
+    if (is.character(i))
+        i <- match(i, names(x))
+    NextMethod()
+}
 
 ##' add change handler
 ##'
@@ -137,6 +174,8 @@ dispose.GNotebook <- function(obj, ...) {
 ##' given by \code{svalue} within the handler call.
 ##' @export
 ##' @rdname gnotebook
+##' @param handler handler
+##' @param action passed along to handler via \code{h[["action"]]}.
 ##' @method addHandlerChanged GNotebook
 ##' @S3method addHandlerChanged GNotebook
 addHandlerChanged.GNotebook <- function(obj, handler, action=NULL, ...) {

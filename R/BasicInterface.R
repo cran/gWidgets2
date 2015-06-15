@@ -133,8 +133,8 @@ Observable <- setRefClass("Observable",
                                 stop("Call with an observer id")
                               
                               signal <- id$signal
-                              ind <- lapply(..observers[[signal]], function(i) identical(i, id$o))
-                              if(any(unlist(ind)) )
+                              ind <- unlist(lapply(..observers[[signal]], identical, id$o))
+                              if(any(ind))
                                 ..observers[[signal]][[which(ind)]] <<- NULL
                               
                             },
@@ -147,7 +147,7 @@ Observable <- setRefClass("Observable",
                                   ..blocked_observers[[id$signal]] <<- list(id$o)
                                 else
                                   ..blocked_observers[[id$signal]] <<-
-                                    c(..blocked_observers[[id$signal]], o)
+                                    c(..blocked_observers[[id$signal]], id$o)
                               }
                             },
                             unblock_observer=function(id) {
@@ -156,8 +156,8 @@ Observable <- setRefClass("Observable",
                                 unblock_observers()
                               } else {
                                 signal <- id$signal
-                                ind <- lapply(..blocked_observers[[signal]], function(i) identical(i, id$o))
-                                if(any(unlist(ind))) 
+                                ind <- unlist(lapply(..blocked_observers[[signal]], identical, id$o))
+                                if(any(ind))
                                   ..blocked_observers[[signal]][[which(ind)]] <<- NULL
                               }
                             },
@@ -271,6 +271,9 @@ BasicToolkitInterface <- setRefClass("BasicToolkitInterface",
                                        add_handler_clicked=define_me,
                                        add_handler_double_clicked=define_me,
                                        add_handler_right_clicked=define_me,
+                                         add_handler_control_clicked=define_me,
+                                         add_handler_shift_clicked=define_me,
+                                         
                                        add_handler_column_clicked=define_me,
                                        add_handler_column_double_clicked=define_me,
                                        add_handler_column_right_clicked=define_me,
@@ -322,7 +325,6 @@ GDefaultWidget <- setRefClass("GDefaultWidget",
 ##' @export
 ##' @rdname gWidgets2-S3methods
 ##' @method [ GDefaultWidget
-##' @S3method [ GDefaultWidget
 "[.GDefaultWidget" <- function(x, i, j, ...) x$get_items(i, j, ...)
 
 

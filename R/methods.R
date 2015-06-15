@@ -15,14 +15,25 @@ NULL
 ##' two components \code{obj}, referring to the object emitting the
 ##' signal and \code{action}, which passes in user-specified data to
 ##' parameterize the function call.
+##'
+##' Handlers may also be added via \code{addHandlerXXX} methods for
+##' the widgets, where \code{XXX} indicates the signal, with a default
+##' signal mapped to \code{addHandlerChanged}
+##' (cf. \code{\link{addHandler}} for a listing). These methods pass
+##' back a handler ID that can be used with \code{blockHandler} and
+##' \code{unblockHandler} to suppress temporarily the calling of the
+##' handler.
 ##' @param action User supplied data passed to the handler when it is called
 ##' @param container A parent container. When a widget is created it can be
 ##' incorporated into the widget heirarchy by passing in a parent
 ##' container at construction time. (For some toolkits this is not
 ##' optional, e.g. \pkg{gWidgets2tcltk} or \pkg{gWidgets2WWW2}.)
 ##' @param ... These values are passed to the \code{add} method of the
-##' parent container, and occasionally have been used to sneak in
-##' hidden arguments to toolkit implementations. For example, when
+##' parent container. Examples of values are \code{expand},
+##' \code{fill}, and \code{anchor}, although they're not always
+##' supported by a given widget. For more details see \link{add}.
+##' Occasionally the variable arguments feature has been used to sneak
+##' in hidden arguments to toolkit implementations. For example, when
 ##' using a widget as a menubar object one can specify a parent
 ##' argument to pass in parent information, similar to how the
 ##' argument is used with gaction and the dialogs.
