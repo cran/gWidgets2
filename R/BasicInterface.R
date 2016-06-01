@@ -334,14 +334,12 @@ GDefaultWidget <- setRefClass("GDefaultWidget",
 ##' @usage \method{[}{GDefaultWidget} (x, i, j, ...) <- value
 ##' @rdname gWidgets2-S3methods
 ##' @method [<- GDefaultWidget
-##' @S3method [<- GDefaultWidget
-"[<-.GDefaultWidget" <- function(x, i, j, ..., value) x$set_items(value, i, j, ...)
+##' "[<-.GDefaultWidget" <- function(x, i, j, ..., value) x$set_items(value, i, j, ...)
 
 ##' method for getWidget
 ##'
 ##' @rdname getToolkitWidget
 ##' @export
 ##' @method getWidget GDefaultWidget
-##' @S3method getWidget GDefaultWidget
-getWidget.GDefaultWidget <- function(obj) getWidget(obj$widget)
+##' getWidget.GDefaultWidget <- function(obj) getWidget(obj$widget)
 
