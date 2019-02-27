@@ -1,4 +1,4 @@
-540bbd2779c5a4c296666d96e77d985c *DESCRIPTION
+240f440c8353a8b83f9a11946f4b7e44 *DESCRIPTION
 f4efcd06bf82dbdf90564f075ca07042 *NAMESPACE
 ac2f51e57cfbd98a0f43fb22afa8d4f4 *NEWS
 52db4a256f6f0dd01ad1cf43da275a55 *R/BasicInterface.R
@@ -43,11 +43,11 @@ c8816047adba15de92dcb684af0c0e4f *R/gprogressbar.R
 b0bc5c5332ea2a38af1ef29c18173e55 *R/gtimer.R
 efc51ebaf24f28d2b39d5edeec759826 *R/gtoolbar.R
 35fd874ff718abeecdd6e3e6657ae4e5 *R/gtree.R
-2d2caf6eb40407f18ab3d094380612ec *R/guiToolkit.R
+c84942d06ccc0de7d654719d045000c2 *R/guiToolkit.R
 f48c297db1faf9dc1c154cfd84e1bfbb *R/gvarbrowser.R
 ea429d6c6163a60c63fb3df843889984 *R/gwindow.R
 5d9e201c2fb7794d146d6283214014b8 *R/handler-methods.R
-b1d452d61fae3b9329a0e4fde1b4533b *R/icons.R
+6e6f39869de8ee3a407864d5d9725243 *R/icons.R
 ee33477138745d2060761292c449784a *R/methods.R
 f1094e9cae85de57410cdcc940ce1372 *R/misc.R
 22701ccdad968fee24e20efefd82f005 *R/ws-model.R
